@@ -12,7 +12,7 @@ github_repo: "https://github.com/HorizonLiu/HorizonLiu.github.io.git" # you code
 # Sidebar settings
 sidebar: true                           # whether or not using Sidebar.
 sidebar-about-description: "when you code, you record.!"
-sidebar-avatar: /img/about-BY-gentle.jpg      # use absolute URL, seeing it's used in both `/` and `/about/`
+sidebar-avatar: /img/myIcon.jpg      # use absolute URL, seeing it's used in both `/` and `/about/`
 
 
 
