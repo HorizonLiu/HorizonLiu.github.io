@@ -1,14 +1,12 @@
 #### 什么是structure streaming？
 
-sprak1.x中是基于RDD存储的一个以为、只有行概念的数据集；而spark2.x中，是基于DataSet和DataFrame的二维行+列的数据集，更偏向于一张二维的表，且DataSet和DataFrame支持类似SQL语句的增删改查。
+sprak1.x中是基于RDD存储的一个一维、只有行概念的数据集；而spark2.x中，是基于DataSet和DataFrame的二维行+列的数据集，更偏向于一张二维的表，且DataSet和DataFrame支持类似SQL语句的增删改查。
 
 以DataSet/DataFrame的行列表格来表达Structure data，既容易理解，又具有广泛的实用性，比如：
 
-```json
-1. 可以将java类转换为DataSet/DataFrame
-2. 多条json对象可以方便的转换为DataSet/DataFrame
-3. MySql表、行式存储文件、列式存储文件可以很好的转换为DataSet/DataFrame
-```
+- 可以将java类转换为DataSet/DataFrame
+- 多条json对象可以方便的转换为DataSet/DataFrame
+- MySql表、行式存储文件、列式存储文件可以很好的转换为DataSet/DataFrame
 
 在DataSet/DataFrame的基础上，就衍生了structure streaming，它和静态的structure data不同，动态的structure data的行列数据表格是一直无限增长的，所以可以把structure streaming看成一个无限增长的表格。
 
