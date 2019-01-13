@@ -32,7 +32,7 @@ public class AccessApplication {
 在我使用时，使用了consul作为服务注册中心，需在依赖中加入：
 
 ```xml
-		<!--服务发现-->
+<!--服务发现-->
 		<dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-consul-discovery</artifactId>
@@ -384,3 +384,5 @@ public class ZuulErrorFilter extends ZuulFilter {
 #### 参考博客
 
 https://juejin.im/post/5a2f31e56fb9a044fc44b346
+
+http://cloud.spring.io/spring-cloud-netflix/single/spring-cloud-netflix.html#_zuul_timeouts
