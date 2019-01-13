@@ -69,10 +69,10 @@ zuul:
 
 ```yaml
 zuul:
-	routes:
-		api-a-url:
-			path: /api-a-url/**
-			url: http://ip:port/
+  routes:
+    api-a-url:
+      path: /api-a-url/**
+      url: http://ip:port/
 ```
 
 该配置表明将/api-a-uri/开始的url会被转发发哦 http://ip:port/ 机器的相应路径下。
@@ -84,11 +84,11 @@ zuul:
 ```yaml
 # 配置一：所有转发的敏感头都为空，不会过滤任何东西。不推荐
 zuul:
-	sensitiveHeaders:
+  sensitiveHeaders:
 # 配置二：对指定转发进行配置，推荐
 zuul:
-	routes:
-		sensitiveHeaders:
+  route:
+    sensitiveHeaders:
 ```
 
 **超时问题**
