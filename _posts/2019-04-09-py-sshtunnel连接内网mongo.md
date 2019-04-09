@@ -81,3 +81,11 @@ if __name__ == '__main__':
 # 将文件中的内容导入到mongo对应的collection中
 ./mongoimport <mongo ip> --port 27017 --username <用户名> --password <密码> --authenticationDatabase admin --db <数据库名> --collection <集合名> --file client.csv
 ```
+
+
+
+#### 参考博客：
+
+py mongo基本操作：<https://juejin.im/post/5addbd0e518825671f2f62ee>
+
+py sshtunnel官方文档：<https://pypi.org/project/sshtunnel/>
