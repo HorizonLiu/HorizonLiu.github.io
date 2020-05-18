@@ -115,7 +115,7 @@ public class MongoTokenStore implements TokenStore, ResourceServerTokenServices 
 
 该类是用于oauth的authorization_code授权模式时，code的生成和使用。spring oauth默认支持mysql和内存方式存储code，原有的code生成服务类图如下：
 
-![image-20200506153010573](/Users/horizonliu/blog-Linguo/HorizonLiu.github.io/img/authorization_code之code生成与存储.png)
+![image-20200506153010573](../img/authorization_code之code生成与存储.png)
 
 `AuthorizationCodeServices` 接口提供创建和消费code两个方法，`RandomValueAuthorizationCodeServices`类用于生成随机code（由0-9，A-Z，a-z）组成，默认长度为6位。
 
@@ -174,7 +174,7 @@ public class MongoAuthorizationCodeService extends RandomValueAuthorizationCodeS
 
 负责token的管理
 
-![image-20200506154857993](/Users/horizonliu/blog-Linguo/HorizonLiu.github.io/img/token_service类图.png)
+![image-20200506154857993](../img/token_service类图.png)
 
 在spring oauth原有的实现中，提供了`DefaultTokenServices` 和`RemoteTokenServices` 两种实现，后者是用在token服务在远程（非本机，另一台服务器）的情况下。这两个类分别实现了三个接口，下面分别介绍：
 
@@ -239,7 +239,7 @@ public interface ConsumerTokenServices {
 
 ClientDetailsService用来管理clientId及其对应的权限、token有效期等相关信息。spring oauth实现中，默认支持jdbc和内存方式的clientDetails管理。
 
-![image-20200506164228639](/Users/horizonliu/blog-Linguo/HorizonLiu.github.io/img/client_detail_service.png)
+![image-20200506164228639](../img/client_detail_service.png)
 
 在介绍ClientDetailsService之前，我们先来看看都支持哪些client的配置，其具体的在`ClientDetails`接口中有详细说明。这里我们定义了一个类`MongoClientDetails` 类，该类实现`ClientDetails`接口，将client的相关信息持久化到mongo中。下面根据这个类，来介绍相关配置参数：
 
@@ -426,7 +426,7 @@ public class MongoUserDetailsService implements UserDetailsService {
 
 ### 组件七、UserApprovalHandler
 
-![image-20200506172315859](/Users/horizonliu/blog-Linguo/HorizonLiu.github.io/img/approval_setting.png)
+![image-20200506172315859](../img/approval_setting.png)
 
 `UserApprovalHandler`用来检查授权请求是否被当前用户允许过，它包含四个接口：
 
