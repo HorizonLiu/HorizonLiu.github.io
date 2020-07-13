@@ -174,12 +174,10 @@ spring:
     driverClassName: com.mysql.jdbc.Driver
   phoenixDataSource:
     url: jdbc:phoenix:localhost
-    type: com.alibaba.druid.pool.DruidDataSource
     driverClassName: org.apache.phoenix.jdbc.PhoenixDriver
-    username:
-    password:
-    druid:
-      connection-properties: phoenix.schema.isNamespaceMappingEnabled=true
+    username: ""
+    password: ""
+    connection-properties: phoenix.schema.isNamespaceMappingEnabled=true
 ```
 
 ### 使用jdbcTemplate读数据
@@ -208,14 +206,29 @@ spring:
 
 #### 3. JdbcTemplate使用
 
-其他用法参考spring官方文档：<https://spring.io/projects/spring-data-jdbc#learn>
+其他用法[参考spring官方文档](https://spring.io/projects/spring-data-jdbc#learn)
+
+### 关于phoenix连接是否需要池化
+
+```
+No, it is not necessary to pool Phoenix JDBC Connections.
+
+Phoenix’s Connection objects are different from most other JDBC Connections due to the underlying HBase connection. The Phoenix Connection object is designed to be a thin object that is inexpensive to create. If Phoenix Connections are reused, it is possible that the underlying HBase connection is not always left in a healthy state by the previous user. It is better to create new Phoenix Connections to ensure that you avoid any potential issues.
+
+Implementing pooling for Phoenix could be done simply by creating a delegate Connection that instantiates a new Phoenix connection when retrieved from the pool and then closes the connection when returning it to the pool (see PHOENIX-2388).
+```
+
+[phoenix常用问题反馈](https://phoenix.apache.org/faq.html)
 
 ### 参考文档
 
-phoenix语法：<https://phoenix.apache.org/language/index.html>
+[phoenix语法](https://phoenix.apache.org/language/index.html)
 
-datasource配置：<https://howtodoinjava.com/spring-boot2/datasource-configuration/#configurations>
+[datasource配置](https://howtodoinjava.com/spring-boot2/datasource-configuration/#configurations)
 
-修改连接配置：<https://stackoverflow.com/questions/34856811/how-to-set-custom-connection-properties-on-datasource-in-spring-boot-1-3-x-with>
+[修改连接配置](https://stackoverflow.com/questions/34856811/how-to-set-custom-connection-properties-on-datasource-in-spring-boot-1-3-x-with)
+
+[phoenix使用注意事项](https://developer.aliyun.com/article/659441)
 
 <https://developer.aliyun.com/article/319748>
+
