@@ -74,6 +74,13 @@ public class PhoenixDataSource {
 
     @Bean(name = "phoenixDatasource")
     public DataSource phoenixDataSource() {
+        // 注意，如果使用TBDS，且程序部署在TBDS集群外，需要加上hbase的鉴权参数，否则会认证失败
+        Properties sysProperties = System.getProperties();
+        sysProperties.setProperty("hbase_security_authentication_tbds_secureid", "xxx");
+        sysProperties.setProperty("hbase_security_authentication_tbds_username", "hbase");
+        sysProperties.setProperty("hbase_security_authentication_tbds_securekey", "xxx");
+        System.setProperties(sysProperties);
+        
         DriverManagerDataSource dataSource = new DriverManagerDataSource();
         Properties properties = new Properties();
         // 若hbase服务端开启了schema和namespace的映射关系，则需配置
